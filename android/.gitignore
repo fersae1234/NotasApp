@@ -1,0 +1,32 @@
+# Archivos generados por Android Studio y Gradle.
+.gradle/
+.kotlin/
+build/
+**/build/
+
+# Configuración local del equipo.
+local.properties
+*.iml
+
+# Archivos de configuración del entorno de desarrollo.
+.idea/
+
+# Archivos temporales y capturas.
+captures/
+.DS_Store
+Thumbs.db
+
+# Archivos generados por compilación nativa.
+.externalNativeBuild/
+.cxx/
+
+# Archivos temporales y registros.
+*.log
+
+# Archivos de firma privados.
+*.jks
+*.keystore
+
+# Archivos de configuración sensibles.
+.env
+.env.*

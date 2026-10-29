@@ -1,0 +1,17 @@
+# Dependencias instaladas mediante npm.
+node_modules/
+
+# Variables de entorno y claves privadas.
+.env
+.env.*
+
+# Permitir subir la plantilla de configuración.
+!.env.example
+
+# Base de datos local y archivos auxiliares de SQLite.
+*.db
+*.db-shm
+*.db-wal
+
+# Archivos de registro.
+*.log

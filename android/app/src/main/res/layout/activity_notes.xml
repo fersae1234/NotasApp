@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    Pantalla principal de notas de NotasApp.
+
+    Esta interfaz permite visualizar las notas
+    del usuario autenticado, crear nuevas notas
+    y cerrar sesión.
+
+    Posteriormente conectaremos los botones
+    y la lista con NotesActivity.kt.
+-->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F7FB"
+    android:padding="20dp">
+
+    <!--
+        Encabezado principal.
+
+        Contiene el título de la pantalla
+        y el botón para cerrar sesión.
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- Título de la pantalla. -->
+        <TextView
+            android:id="@+id/txtTituloNotas"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Mis notas"
+            android:textColor="#203B60"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <!-- Botón para cerrar sesión. -->
+        <Button
+            android:id="@+id/btnCerrarSesion"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Salir"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+    <!--
+        Subtítulo que describe la finalidad
+        de la aplicación.
+    -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Organiza tus ideas y recordatorios"
+        android:textColor="#68768A"
+        android:textSize="14sp" />
+
+    <!--
+        Indicador de carga.
+
+        Se mostrará mientras consultamos
+        las notas almacenadas en el backend.
+    -->
+    <ProgressBar
+        android:id="@+id/progressNotas"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_marginTop="16dp"
+        android:indeterminate="true"
+        android:visibility="gone" />
+
+    <!--
+        Contenedor principal de las notas.
+
+        Utilizamos FrameLayout para mostrar
+        una lista o un mensaje cuando no
+        existan notas registradas.
+    -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp">
+
+        <!--
+            RecyclerView que mostrará las notas.
+
+            Cada nota tendrá su propio diseño
+            con título, contenido y acciones.
+        -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerNotas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="12dp" />
+
+        <!--
+            Mensaje que aparece cuando
+            el usuario todavía no tiene notas.
+        -->
+        <LinearLayout
+            android:id="@+id/layoutSinNotas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Todavía no tienes notas"
+                android:textColor="#53647B"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Crea tu primera nota para comenzar."
+                android:textColor="#8394AC"
+                android:textSize="14sp"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <!--
+        Botón principal para crear una nota.
+
+        Posteriormente abrirá un formulario
+        donde el usuario podrá ingresar
+        el título y contenido de su nota.
+    -->
+    <Button
+        android:id="@+id/btnNuevaNota"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginBottom="12dp"
+        android:text="+ Nueva nota"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:backgroundTint="#203B60"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>

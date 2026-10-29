@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    Diseño individual de una nota.
+
+    RecyclerView utiliza este archivo para mostrar
+    cada nota recuperada desde nuestro backend.
+
+    CardView proporciona el diseño de tarjeta
+    y ConstraintLayout organiza sus elementos
+    mediante restricciones.
+-->
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="#FFFFFF">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Título principal de la nota -->
+        <TextView
+            android:id="@+id/txtNoteTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Título de la nota"
+            android:textColor="#202938"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Contenido de la nota -->
+        <TextView
+            android:id="@+id/txtNoteContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Aquí aparecerá el contenido de la nota."
+            android:textColor="#596579"
+            android:textSize="14sp"
+            android:maxLines="4"
+            android:ellipsize="end"
+            app:layout_constraintTop_toBottomOf="@id/txtNoteTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Fecha de la última modificación -->
+        <TextView
+            android:id="@+id/txtNoteDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Última actualización"
+            android:textColor="#8792A2"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/txtNoteContent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Botón para editar la nota -->
+        <Button
+            android:id="@+id/btnEditNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Editar"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/txtNoteDate"
+            app:layout_constraintEnd_toStartOf="@id/btnDeleteNote" />
+
+        <!-- Botón para eliminar la nota -->
+        <Button
+            android:id="@+id/btnDeleteNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="8dp"
+            android:text="Eliminar"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/txtNoteDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

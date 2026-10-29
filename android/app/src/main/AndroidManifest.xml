@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    Archivo de configuración principal de NotasApp.
+
+    Define los permisos, las características
+    generales y las actividades de la aplicación.
+-->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        Permiso para acceder a Internet.
+
+        Es necesario para que Retrofit y OkHttp
+        puedan comunicarse con nuestro backend
+        desarrollado con Node.js y Express.
+    -->
+    <uses-permission
+        android:name="android.permission.INTERNET" />
+
+    <!--
+        Configuración general de NotasApp.
+
+        Se conservan las opciones originales
+        de respaldo, iconos, idioma y tema.
+
+        usesCleartextTraffic permite conexiones HTTP
+        sin cifrar durante las pruebas locales
+        con el backend en el puerto 3000.
+
+        En producción se deberá utilizar HTTPS.
+    -->
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.NotasApp"
+        android:usesCleartextTraffic="true">
+
+        <!--
+            Pantalla independiente para crear notas.
+
+            Utiliza ConstraintLayout y permite
+            guardar información en nuestro backend.
+        -->
+        <activity
+            android:name=".CreateNoteActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!--
+            Dashboard principal.
+
+            Muestra la bienvenida al usuario
+            y permite acceder a las notas.
+        -->
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!--
+            Pantalla de listado de notas.
+
+            Permite consultar, editar y eliminar
+            las notas del usuario autenticado.
+        -->
+        <activity
+            android:name=".NotesActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!--
+            Pantalla de inicio de sesión.
+
+            MainActivity es la actividad inicial
+            que Android abre desde el lanzador.
+        -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+
+            <!--
+                Definir MainActivity como inicio.
+            -->
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.MAIN" />
+
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+
+        </activity>
+
+    </application>
+
+</manifest>

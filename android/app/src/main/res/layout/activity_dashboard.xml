@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    Pantalla principal o Dashboard de NotasApp.
+
+    Utiliza LinearLayout como contenedor principal,
+    de acuerdo con los requisitos del parcial.
+
+    Permite al usuario autenticado acceder
+    a la creación y al listado de notas.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="#F5F7FA">
+
+    <!-- Nombre principal de la aplicación -->
+    <TextView
+        android:id="@+id/txtDashboardTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NotasApp"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="#1E3A5F"
+        android:layout_marginBottom="12dp" />
+
+    <!--
+        Mensaje de bienvenida.
+
+        El nombre del usuario será agregado
+        dinámicamente desde DashboardActivity.
+    -->
+    <TextView
+        android:id="@+id/txtBienvenida"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¡Bienvenido!"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#243B5A"
+        android:gravity="center"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Descripción de la pantalla principal -->
+    <TextView
+        android:id="@+id/txtDashboardDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Administra tus notas personales de forma sencilla."
+        android:textSize="15sp"
+        android:textColor="#64748B"
+        android:gravity="center"
+        android:layout_marginBottom="36dp" />
+
+    <!--
+        Botón para abrir la pantalla
+        independiente de creación de notas.
+    -->
+    <Button
+        android:id="@+id/btnCrearNota"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="+ Crear nota"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#1E3A5F"
+        android:layout_marginBottom="16dp" />
+
+    <!--
+        Botón para abrir el listado de notas
+        almacenadas en nuestro backend.
+    -->
+    <Button
+        android:id="@+id/btnVerNotas"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="Ver mis notas"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#6650A4" />
+
+    <!--
+        Botón para cerrar la sesión del usuario
+        y regresar a la pantalla de Login.
+    -->
+    <Button
+        android:id="@+id/btnDashboardSalir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cerrar sesión"
+        android:textAllCaps="false"
+        android:layout_marginTop="32dp" />
+
+</LinearLayout>

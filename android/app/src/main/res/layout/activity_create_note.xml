@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    Pantalla independiente de creación de notas.
+
+    Utiliza ConstraintLayout como contenedor
+    principal, según los requisitos del parcial.
+
+    Permite ingresar el título y contenido
+    de una nota para enviarlos al backend.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F7FA"
+    android:padding="24dp">
+
+    <!-- Título principal de la pantalla -->
+    <TextView
+        android:id="@+id/txtCrearNotaTitulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Crear nueva nota"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="#1E3A5F"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Descripción del formulario -->
+    <TextView
+        android:id="@+id/txtCrearNotaDescripcion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Escribe tus ideas y guárdalas de forma segura."
+        android:textSize="14sp"
+        android:textColor="#64748B"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/txtCrearNotaTitulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Campo para ingresar el título -->
+    <EditText
+        android:id="@+id/editTituloNota"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:hint="Título de la nota"
+        android:inputType="textCapSentences"
+        android:singleLine="true"
+        android:padding="12dp"
+        android:backgroundTint="#1E3A5F"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/txtCrearNotaDescripcion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Campo para ingresar el contenido -->
+    <EditText
+        android:id="@+id/editContenidoNota"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:hint="Escribe el contenido de tu nota..."
+        android:inputType="textMultiLine|textCapSentences"
+        android:gravity="top|start"
+        android:padding="12dp"
+        android:backgroundTint="#1E3A5F"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/editTituloNota"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Botón para guardar la nota en el backend -->
+    <Button
+        android:id="@+id/btnGuardarNota"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:text="Guardar nota"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#1E3A5F"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/editContenidoNota"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--
+        Indicador de carga.
+
+        Se mostrará mientras el backend
+        procesa la creación de la nota.
+    -->
+    <ProgressBar
+        android:id="@+id/progressGuardarNota"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:visibility="gone"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/btnGuardarNota"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Botón para regresar al Dashboard -->
+    <Button
+        android:id="@+id/btnCancelarNota"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Cancelar"
+        android:textAllCaps="false"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/progressGuardarNota"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

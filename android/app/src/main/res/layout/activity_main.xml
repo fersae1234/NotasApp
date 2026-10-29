@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    Pantalla de inicio de sesión de NotasApp.
+
+    Se utiliza ConstraintLayout como contenedor principal
+    para organizar los elementos mediante restricciones.
+    Este diseño corresponde a la pantalla de Login.
+-->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F7FA"
+    android:padding="24dp">
+
+    <!--
+        Título principal de la aplicación.
+        Muestra el nombre NotasApp en la parte superior
+        del formulario de inicio de sesión.
+    -->
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NotasApp"
+        android:textColor="#1E3A5F"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/txtSubtitulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--
+        Subtítulo de bienvenida.
+        Indica al usuario que debe iniciar sesión
+        para acceder a sus notas personales.
+    -->
+    <TextView
+        android:id="@+id/txtSubtitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Inicia sesión para gestionar tus notas"
+        android:textColor="#64748B"
+        android:textSize="14sp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@id/editUsuario"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--
+        Campo para ingresar el correo electrónico.
+        El tipo textEmailAddress permite utilizar
+        un teclado adaptado para escribir correos.
+        Posteriormente se enviará al backend.
+    -->
+    <EditText
+        android:id="@+id/editUsuario"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:hint="Correo electrónico"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        android:backgroundTint="#1E3A5F"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--
+        Campo para ingresar la contraseña.
+        textPassword oculta los caracteres escritos
+        para proteger visualmente la contraseña.
+    -->
+    <EditText
+        android:id="@+id/editPassword"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#1E3A5F"
+        app:layout_constraintTop_toBottomOf="@id/editUsuario"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--
+        Botón para iniciar sesión.
+        Más adelante se conectará con el ViewModel
+        para validar las credenciales mediante
+        una petición al backend utilizando Retrofit.
+    -->
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:text="INICIAR SESIÓN"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#1E3A5F"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/editPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--
+        Indicador de carga del inicio de sesión.
+        Inicialmente permanece oculto (gone).
+        Se mostrará mientras se valida el usuario
+        y se espera la respuesta del backend.
+    -->
+    <ProgressBar
+        android:id="@+id/progressLogin"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:visibility="gone"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/btnLogin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
